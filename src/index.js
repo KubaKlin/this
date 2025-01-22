@@ -1,8 +1,8 @@
-import "./style.css";
+import './style.css';
 
 const buttonStart = document.querySelector('.button-start');
 const buttonStop = document.querySelector('.button-stop');
-const stopWatchScreen = document.querySelector('.stop-watch-screen')
+const stopWatchScreen = document.querySelector('.stop-watch-screen');
 if (buttonStop) {
   buttonStop.disabled = true;
 }
