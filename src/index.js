@@ -12,6 +12,7 @@ class Stopwatch {
     this.startTime = 0;
     this.elapsedTime = 0;
     this.running = false;
+    this.timer = null;
   }
 
   start() {
