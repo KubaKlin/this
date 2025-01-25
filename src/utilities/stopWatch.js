@@ -44,7 +44,7 @@ export class Stopwatch {
       this.elapsedTime = Date.now() - this.startTime;
       this.updateDisplay();
     }
-  }
+  };
 
   getTime() {
     const time = new Date(this.elapsedTime);

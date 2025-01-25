@@ -1,3 +1,3 @@
 import './style.css';
-import {Stopwatch} from "./utilities/stopWatch";
+import { Stopwatch } from './utilities/stopWatch';
 new Stopwatch();
