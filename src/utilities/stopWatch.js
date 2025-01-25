@@ -7,7 +7,7 @@ export class Stopwatch {
     this.startTime = 0;
     this.elapsedTime = 0;
     this.isRunning = false;
-    this.timer = null;
+    this.timerInterval = null;
     this.initEventListeners();
   }
 
@@ -15,7 +15,7 @@ export class Stopwatch {
     if (!this.isRunning) {
       this.startTime = Date.now() - this.elapsedTime;
       this.isRunning = true;
-      this.timer = setInterval(this.update, 1000);
+      this.timerInterval = setInterval(this.update, 1000);
     }
     if (this.buttonStop) {
       this.buttonStop.disabled = false;
@@ -25,7 +25,7 @@ export class Stopwatch {
 
   stop() {
     if (this.isRunning) {
-      clearInterval(this.timer);
+      clearInterval(this.timerInterval);
       this.isRunning = false;
     }
   }
