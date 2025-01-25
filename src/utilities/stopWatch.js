@@ -6,27 +6,27 @@ export class Stopwatch {
 
     this.startTime = 0;
     this.elapsedTime = 0;
-    this.running = false;
+    this.isRunning = false;
     this.timer = null;
     this.initEventListeners();
   }
 
   start() {
-    if (!this.running) {
+    if (!this.isRunning) {
       this.startTime = Date.now() - this.elapsedTime;
-      this.running = true;
-      this.timer = setInterval(() => this.update(), 1000);
-      if (this.buttonStop) {
-        this.buttonStop.disabled = false;
-        this.buttonStop.innerText = 'Stop';
-      }
+      this.isRunning = true;
+      this.timer = setInterval(this.update, 1000);
+    }
+    if (this.buttonStop) {
+      this.buttonStop.disabled = false;
+      this.buttonStop.innerText = 'Stop';
     }
   }
 
   stop() {
-    if (this.running) {
+    if (this.isRunning) {
       clearInterval(this.timer);
-      this.running = false;
+      this.isRunning = false;
     }
   }
 
@@ -39,8 +39,8 @@ export class Stopwatch {
     }
   }
 
-  update() {
-    if (this.running) {
+  update = () => {
+    if (this.isRunning) {
       this.elapsedTime = Date.now() - this.startTime;
       this.updateDisplay();
     }
@@ -65,7 +65,7 @@ export class Stopwatch {
     }
     if (this.buttonStop) {
       this.buttonStop.addEventListener('click', () => {
-        if (!this.running) {
+        if (!this.isRunning) {
           this.reset();
           this.buttonStop.innerText = 'Stop';
         } else {
