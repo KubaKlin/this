@@ -1,8 +1,8 @@
 export class Stopwatch {
   constructor() {
-    this.buttonStart = document.querySelector('.button-start');
-    this.buttonStop = document.querySelector('.button-stop');
-    this.stopWatchScreen = document.querySelector('.stop-watch-screen');
+    this.buttonStart = document.querySelector('#button-start');
+    this.buttonStop = document.querySelector('#button-stop');
+    this.stopWatchScreen = document.querySelector('#stop-watch-screen');
 
     this.startTime = 0;
     this.elapsedTime = 0;
@@ -11,7 +11,7 @@ export class Stopwatch {
     this.initEventListeners();
   }
 
-  start() {
+  start = () => {
     if (!this.isRunning) {
       this.startTime = Date.now() - this.elapsedTime;
       this.isRunning = true;
@@ -21,7 +21,7 @@ export class Stopwatch {
       this.buttonStop.disabled = false;
       this.buttonStop.innerText = 'Stop';
     }
-  }
+  };
 
   stop() {
     if (this.isRunning) {
@@ -61,7 +61,7 @@ export class Stopwatch {
 
   initEventListeners() {
     if (this.buttonStart) {
-      this.buttonStart.addEventListener('click', () => this.start());
+      this.buttonStart.addEventListener('click', this.start);
     }
     if (this.buttonStop) {
       this.buttonStop.addEventListener('click', () => {
